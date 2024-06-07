@@ -16,7 +16,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n// Number Types mini-challenge 10 10.2\n// Write a function that will only accept numbers and attend to \n// all TypeScript weakness flags.\n// : number\nvar reviewTotalDisplay = document.querySelector('#reviews');\nvar reviews = [\n    {\n        name: 'Sheia',\n        stars: 5,\n        loyaltyUser: true,\n        date: '01-04-2021'\n    },\n    {\n        name: 'Andrzej',\n        stars: 3,\n        loyaltyUser: false,\n        date: '28-03-2021'\n    },\n    {\n        name: 'Omar',\n        stars: 4,\n        loyaltyUser: true,\n        date: '27-03-2021'\n    },\n];\nfunction showReviewTotal(value) {\n    reviewTotalDisplay.innerHTML = 'review total ' + value.toString();\n}\nshowReviewTotal(reviews.length);\n\n\n//# sourceURL=webpack://project/./src/index.ts?");
+eval("\nvar reviewTotalDisplay = document.querySelector('#reviews');\nvar reviews = [\n    {\n        name: 'Sheia',\n        stars: 5,\n        loyaltyUser: true,\n        date: '01-04-2021'\n    },\n    {\n        name: 'Andrzej',\n        stars: 3,\n        loyaltyUser: false,\n        date: '28-03-2021'\n    },\n    {\n        name: 'Omar',\n        stars: 4,\n        loyaltyUser: true,\n        date: '27-03-2021'\n    },\n];\nfunction showReviewTotal(value, reviewer) {\n    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer;\n}\nshowReviewTotal(reviews.length, reviews[0].name);\n\n\n//# sourceURL=webpack://project/./src/index.ts?");
 
 /***/ })
 
