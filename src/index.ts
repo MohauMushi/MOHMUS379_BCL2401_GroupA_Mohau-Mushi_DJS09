@@ -1,6 +1,7 @@
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from "./utils";
 import { Permissions, LoyaltyUser } from './enums';
 import { Price, Country } from './types'
+import { Review } from './interfaces'
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
 const reviewContainer = document.querySelector('.reviews') as HTMLElement
 const container = document.querySelector('.container') as HTMLElement
@@ -10,7 +11,7 @@ const footer = document.querySelector('.footer') as HTMLElement;
 let isOpen: boolean;
 
 // Reviews
-const reviews : any[]= [
+const reviews: Review[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -28,7 +29,6 @@ const reviews : any[]= [
         stars: 4,
         loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021',
-        description: 'Great hosts, location was a bit further than said',
     },
 ]
 
@@ -102,18 +102,6 @@ const properties: {
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 populateUser(you.isReturning, you.firstName)
 
-let authorityStatus : any
-
-let isLoggedIn = false
-
-function showDetails(authorityStatus: boolean | Permissions, element : HTMLDivElement, price: number) {
-   if (authorityStatus) {
-       const priceDisplay = document.createElement('div')
-       priceDisplay.innerHTML = price.toString() + '/night'
-       element.appendChild(priceDisplay)
-   }
-}
-
 // Add the properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
@@ -128,12 +116,7 @@ for (let i = 0; i < properties.length; i++) {
 
 
 let count = 0
-function addReviews(array: {
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUser;
-    date: string;
-}[] ) : void {
+function addReviews(array: Review[]) : void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)
