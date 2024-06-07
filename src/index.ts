@@ -1,7 +1,10 @@
-import { showReviewTotal, populateUser } from "./utils";
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from "./utils";
 import { Permissions, LoyaltyUser } from './enums';
 import { Price, Country } from './types'
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
+const reviewContainer = document.querySelector('.reviews') as HTMLElement
+const container = document.querySelector('.container') as HTMLElement
+const button = document.querySelector('button') as HTMLElement
 const footer = document.querySelector('.footer') as HTMLElement;
 
 let isOpen: boolean;
@@ -119,10 +122,32 @@ for (let i = 0; i < properties.length; i++) {
     const image = document.createElement('img')
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
-    propertyContainer.appendChild(card)
     showDetails(you.permissions, card, properties[i].price)
+    propertyContainer.appendChild(card)
 }
 
+
+let count = 0
+function addReviews(array: {
+    name: string;
+    stars: number;
+    loyaltyUser: LoyaltyUser;
+    date: string;
+}[] ) : void {
+    if (!count ) {
+        count++
+        const topTwo = getTopTwoReviews(array)
+        for (let i = 0; i < topTwo.length; i++) {
+            const card = document.createElement('div')
+            card.classList.add('review-card')
+            card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
+            reviewContainer.appendChild(card)
+        }
+        container.removeChild(button) 
+    }
+}
+
+button.addEventListener('click', () => addReviews(reviews))
 // location
 let currentLocation: [string, string, number] = ['Phokeng', '20:30', 12]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
