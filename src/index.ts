@@ -1,14 +1,13 @@
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from "./utils";
 import { Permissions, LoyaltyUser } from './enums';
-import { Price, Country } from './types'
-import { Review } from './interfaces'
+import { Review, Property } from './interfaces'
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
 const reviewContainer = document.querySelector('.reviews') as HTMLElement
 const container = document.querySelector('.container') as HTMLElement
 const button = document.querySelector('button') as HTMLElement
 const footer = document.querySelector('.footer') as HTMLElement;
 
-let isOpen: boolean;
+let IsLoggedIn: boolean;
 
 // Reviews
 const reviews: Review[] = [
@@ -41,19 +40,6 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-interface Property {
-  image: string;
-  title: string;
-  price: Price;
-  location: {
-      firstLine: string;
-      city: string;
-      code: number | string;
-      country: Country
-  }
-  contact: [ number, string];
-  isAvailable: boolean;
-}
 
 
 //Properties
