@@ -41,21 +41,23 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-
-//Properties
-const properties: {
+interface Property {
   image: string;
   title: string;
   price: Price;
   location: {
-    firstLine: string;
-    city: string;
-    code: number;
-    country: Country;
-  };
-  contact: [number, string];
+      firstLine: string;
+      city: string;
+      code: number | string;
+      country: Country
+  }
+  contact: [ number, string];
   isAvailable: boolean;
-}[] = [
+}
+
+
+//Properties
+const properties: Property[] = [
   {
     image: "../src/images/colombia-property.jpg",
     title: "Colombian Shack",
@@ -89,7 +91,7 @@ const properties: {
     location: {
       firstLine: "flat 15",
       city: "London",
-      code: 35433,
+      code: 'SW4 5XW',
       country: "United Kingdom",
     },
     contact: [+1123495082908, "andyluger@aol.com"],
@@ -135,3 +137,30 @@ button.addEventListener('click', () => addReviews(reviews))
 let currentLocation: [string, string, number] = ['Phokeng', '20:30', 12]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
  
+
+// Classes
+class MainProperty {
+  src: string
+  title: string
+  reviews: Review[]
+  constructor(src: string, title: string, reviews: Review[]) {
+      this.src = src
+      this.title = title
+      this.reviews = reviews
+  }
+}
+
+let yourMainProperty = new MainProperty(
+  '../src/images/italian-property.jpg', 
+  'Italian House',
+  [{
+      name: 'Olive',
+      stars: 5,
+      loyaltyUser: LoyaltyUser.GOLD_USER,
+      date: '12-04-2021'
+  }] )
+
+const mainImageContainer = document.querySelector('.main-image') as HTMLElement
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)
