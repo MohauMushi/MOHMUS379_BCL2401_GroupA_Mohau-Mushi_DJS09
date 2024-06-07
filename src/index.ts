@@ -1,4 +1,4 @@
-const propertyContainer = document.querySelector('.properties') as HTMLElement
+const propertyContainer = document.querySelector(".properties") as HTMLElement;
 
 import { showReviewTotal, populateUser } from "./utils";
 let isOpen: boolean;
@@ -58,59 +58,60 @@ const properties: {
   };
   contact: [number, string];
   isAvailable: boolean;
-}[] = [{
-    image: '../src/images/colombia-property.jpg',
-    title: 'Colombian Shack',
+}[] = [
+  {
+    image: "../src/images/colombia-property.jpg",
+    title: "Colombian Shack",
     price: 45,
     location: {
-        firstLine: 'shack 37',
-        city: 'Bogota',
-        code: 45632,
-        country: 'Colombia'
+      firstLine: "shack 37",
+      city: "Bogota",
+      code: 45632,
+      country: "Colombia",
     },
-    contact: [+1123495082908, 'marywinkle@gmail.com'],
-    isAvailable: true  
-},
-{
-    image: '../src/images/poland-property.jpg',
-    title: 'Polish Cottage',
+    contact: [+1123495082908, "marywinkle@gmail.com"],
+    isAvailable: true,
+  },
+  {
+    image: "../src/images/poland-property.jpg",
+    title: "Polish Cottage",
     price: 34,
     location: {
-        firstLine: 'no 23',
-        city: 'Gdansk',
-        code: 343903,
-        country: 'Poland'
+      firstLine: "no 23",
+      city: "Gdansk",
+      code: 343903,
+      country: "Poland",
     },
-    contact: [+1123495082908, 'garydavis@hotmail.com'],
-    isAvailable: false 
-},
-{
-    image: '../src/images/london-property.jpg',
-    title: 'London Flat',
+    contact: [+1123495082908, "garydavis@hotmail.com"],
+    isAvailable: false,
+  },
+  {
+    image: "../src/images/london-property.jpg",
+    title: "London Flat",
     price: 23,
     location: {
-        firstLine: 'flat 15',
-        city: 'London',
-        code: 35433,
-        country: 'United Kingdom',
+      firstLine: "flat 15",
+      city: "London",
+      code: 35433,
+      country: "United Kingdom",
     },
-    contact: [ +1123495082908, 'andyluger@aol.com'],
-    isAvailable: true
-}];
+    contact: [+1123495082908, "andyluger@aol.com"],
+    isAvailable: true,
+  },
+];
 
 // Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
 populateUser(you.isReturning, you.firstName);
 
-
 //Add the properties
 for (let i = 0; i < properties.length; i++) {
-    const card = document.createElement('div')
-    card.classList.add('card')
-    card.innerHTML = properties[i].title
-    const image = document.createElement('img')
-    image.setAttribute('src', properties[i].image)
-    card.appendChild(image)
-    propertyContainer.appendChild(card)
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = properties[i].title;
+  const image = document.createElement("img");
+  image.setAttribute("src", properties[i].image);
+  card.appendChild(image);
+  propertyContainer.appendChild(card);
 }
