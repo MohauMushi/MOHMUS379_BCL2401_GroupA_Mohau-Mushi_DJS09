@@ -76,3 +76,16 @@ body {
     width: 90%;
     background-color: coral;
 }
+
+button {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    
+}
+
+button:hover {
+    background-color: goldenrod;
+}
