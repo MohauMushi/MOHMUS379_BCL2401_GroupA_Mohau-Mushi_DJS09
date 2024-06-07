@@ -1,5 +1,6 @@
 import { showReviewTotal, populateUser } from "./utils";
 import { Permissions, LoyaltyUser } from './enums';
+import { Price, Country } from './types'
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
 const footer = document.querySelector('.footer') as HTMLElement;
 
@@ -38,9 +39,6 @@ const you = {
 }
 
 
-// type Alias
-type Price = 45 | 30 | 25
-type Country = 'Colombia' | 'Poland' | 'United Kingdom'
 //Properties
 const properties: {
   image: string;
