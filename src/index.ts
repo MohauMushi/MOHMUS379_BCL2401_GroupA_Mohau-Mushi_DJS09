@@ -1,4 +1,5 @@
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
+const footer = document.querySelector('.footer') as HTMLElement;
 
 import { showReviewTotal, populateUser } from "./utils";
 let isOpen: boolean;
@@ -115,3 +116,8 @@ for (let i = 0; i < properties.length; i++) {
   card.appendChild(image);
   propertyContainer.appendChild(card);
 }
+
+// location
+let currentLocation: [string, string, number] = ['Phokeng', '20:30', 12]
+footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
+ 
