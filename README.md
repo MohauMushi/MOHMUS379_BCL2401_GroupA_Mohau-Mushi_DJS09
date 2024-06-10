@@ -4,6 +4,14 @@
 
 This project is a TypeScript implementation of a Couch Surfing website. It aims to provide a platform for travelers to find and book accommodations with hosts willing to offer their couches or spare rooms. The project was developed as part of a TypeScript learning exercise, focusing on understanding and applying TypeScript concepts.
 
+## How to Run and Install Dependencies
+
+1. **Clone the Repository:** https://github.com/MohauMushi/MOHMUS379_BCL2401_GroupA_Mohau-Mushi_DJS09.git
+2. **Navigate to Project Directory** cd.. 
+3. **Install Dependencies:**  `npm install`
+5. **Build the Project:** `npm run build`
+6. **Run Project:** `npm run serve`
+
 ## 📚 What I Learned
 I gained valuable experience working with TypeScript, a statically typed superset of JavaScript.
 - **Interfaces:** Explored the use of interfaces to define the shape of objects, making the codebase more maintainable and easier to refactor
@@ -16,10 +24,3 @@ I gained valuable experience working with TypeScript, a statically typed superse
 - **TypeScript Adoption:** It was challenging to adapt to TypeScript's syntax and concepts, especially coming from a JavaScript background. However, with practice and understanding the benefits of static typing, the transition will become smoother over time
 
 
- ## How to Run and Install Dependencies
-
- 1. **Clone the Repository:**
- 2. **Navigate to the Project Directory:** cd ...
- 3. **Install Dependencies:** npm install
- 4. **Build the Project** npm run build & npm run watch
- 5. **Run the Project:** The index.html file through live server
